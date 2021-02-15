@@ -1,0 +1,20 @@
+<%- include("header") -%> 
+    <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+    </div>
+    
+    <div class="box">
+            <!--scriplet tag used to implement for loop to add individual items in array seperately to the list-->    
+            <% for (i = 0; i < newListItems.length; i++) {%>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newListItems[i] %></p> 
+        </div>
+        <% } %> 
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="new item">
+            <!-- a dynamic value is assigned to the button. This value is stored in the post request and a response will be made depending on the name of the value, i.e whether the normal button was preessed or the work list button was pressed-->
+            <button type="submit" name="list" value=<%= listTitle %> >+</button>
+        </form>
+    </div>
+    <%- include("footer") -%> 
